@@ -25,7 +25,7 @@ while True:
         count = count +1
         query_args = {"SENSOR_ID":"Alarm1","SENSOR_STATUS":var1,"SENSOR_COUNT":count}
         encoded_args = urllib.urlencode(query_args)
-        url = 'https://thematic-caster-124023.appspot.com/upload_data'
+        url = 'https://<Your_Project_ID>.appspot.com/upload_data'
         print urllib2.urlopen(url, encoded_args).read()
         while io.input(door_pin1):
             blink_led()
@@ -36,7 +36,7 @@ while True:
             var1 = "off"
             query_args = {"SENSOR_ID":"Alarm1","SENSOR_STATUS":var1,"SENSOR_COUNT":count}
             encoded_args = urllib.urlencode(query_args)
-            url = 'https://thematic-caster-124023.appspot.com/upload_data'
+            url = 'https://<Your_Project_ID>.appspot.com/upload_data'
             print urllib2.urlopen(url, encoded_args).read()
         
     
