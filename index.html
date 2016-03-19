@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<meta name="author" content="Yi-Chiang Chang">
+<meta name="Demo" content="Door Alarm Demo">
+
+<title>{{ title | safe }}</title>
+</head>
+<html>
+    <body>
+        <p>{{ greeting | safe }}</p>
+        
+        <hr/>
+        <!-- ip logs -->
+        <h3>Door Alarm Status</h3>
+        {% if ip_logs %}
+            {% for ip_log in ip_logs %}
+                <p>
+                IP: <span>{{ip_log.ip_address | safe}}</span>
+                <br/>
+		Door Alarm: <span>{{ip_log.alarm_id | safe}}</span>
+		<br/>
+		Status: <span>{{ip_log.alarm_status | safe}}</span>
+                <br/>
+                Number of count: <span>{{ip_log.alarm_count | safe}}</span>
+		<br/>
+		Time: <span>{{ip_log.access_time | safe}}</span>
+                </p>
+            {% endfor %}
+        {% else %}
+            <p>No Logs</p>
+        {% endif %}
+    </body>
+</html>
+{% endautoescape %}
